@@ -1,4 +1,6 @@
 import loadHome from './homepage';
+import loadContact from './contact'
+import loadMenu from './menu'
 
 
 function createHeader() {
@@ -22,14 +24,29 @@ function createNav() {
   const homeLink = document.createElement('button');
   homeLink.classList.add('navItem');
   homeLink.textContent = 'Home';
+  homeLink.addEventListener("click", (e) => {
+    if (e.target.classList.contains("active")) return;
+    setActiveButton(homeLink);
+    loadHome();
+  });
 
   const menuLink = document.createElement('button')
   menuLink.classList.add('navItem');
-  menuLink.textContent = 'Menu'
+  menuLink.textContent = 'Menu';
+  menuLink.addEventListener("click", (e) => {
+    if (e.target.classList.contains("active")) return;
+    setActiveButton(menuLink);
+    loadMenu();
+  });
 
   const contactLink = document.createElement('button')
   contactLink.classList.add('navItem');
   contactLink.textContent = 'Contact';
+  contactLink.addEventListener("click", (e) => {
+    if (e.target.classList.contains("active")) return;
+    setActiveButton(contactLink);
+    loadContact();
+  });
 
   nav.appendChild(homeLink);
   nav.appendChild(menuLink);
@@ -37,6 +54,18 @@ function createNav() {
 
   return nav;
 }
+
+function setActiveButton(button) {
+  const buttons = document.querySelectorAll(".navLink");
+
+  buttons.forEach((button) => {
+    if (button !== this) {
+      button.classList.remove("active");
+    }
+    button.classList.add("active");
+  });
+}
+
 function createMain() {
   const main = document.createElement('main');
   main.classList.add('main');
@@ -68,7 +97,7 @@ function loadPage() {
   content.appendChild(createMain())
   content.appendChild(createFooter())
   
-
+  setActiveButton(document.querySelector(".navLink"));
   loadHome();
 }
 
