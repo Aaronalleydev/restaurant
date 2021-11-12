@@ -3,7 +3,7 @@ function createMenu() {
   menuDisplay.classList.add('contactDisplay');
 
   const homeImg = document.createElement('img');
-  homeImg.src = 'images/burger.jpg'
+  homeImg.src = 'images/chicken.jpg'
   homeImg.alt = 'A juicy Burger'
 
   menuDisplay.appendChild(homeImg);

@@ -1,4 +1,5 @@
 import loadPage from './firstLoad';
+import style from './style.css'
 
 loadPage();
 
