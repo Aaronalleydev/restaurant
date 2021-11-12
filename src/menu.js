@@ -1,15 +1,31 @@
+
 function createMenu() {
   const menuDisplay = document.createElement('div');
-  menuDisplay.classList.add('contactDisplay');
+  menuDisplay.classList.add('menuDisplay');
 
-  const homeImg = document.createElement('img');
-  homeImg.src = 'images/chicken.jpg'
-  homeImg.alt = 'A juicy Burger'
-
-  menuDisplay.appendChild(homeImg);
   menuDisplay.appendChild(createParagraph('This is going to be the Menu page'));
 
+
+  menuDisplay.appendChild(createMenueItem('images/chicken.jpg', 'A juicy Burger', ' A cwispy chicken burger!'))
+  menuDisplay.appendChild(createMenueItem('images/egg.jpg', 'An egg burger', 'This is the egg burger'))
+
   return menuDisplay;
+}
+
+function createMenueItem(img, alt, desc) {
+  const menuItem = document.createElement('div');
+  menuItem.classList.add('menuItem')
+  const menuImage = document.createElement('img');
+  menuImage.src = img
+  menuImage.alt = alt
+
+  const menuDesc = document.createElement('p');
+  menuDesc.textContent = desc;
+
+  menuItem.appendChild(menuImage);
+  menuItem.appendChild(menuDesc);
+
+  return menuItem;
 }
 
 function createParagraph(p) {
